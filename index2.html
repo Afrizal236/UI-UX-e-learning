@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar BersamaRamy.</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Dark Mode CSS -->
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Palet Warna */
+        :root {
+            --bg-color: #121212;
+            --primary-color: #1E1E1E;
+            --secondary-color: #2C2C2C;
+            --accent-color: #BB86FC;
+            --text-color: #E0E0E0;
+            --secondary-text: #A0A0A0;
+            --button-bg-blue: #1F6FEB;
+            --button-bg-red: #CF6679;
+            --button-text: #FFFFFF;
+            --footer-bg: #1E1E1E;
+            --footer-text: #A0A0A0;
+            --link-hover: #BB86FC;
+        }
+
+        /* Styling Umum */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Navigasi */
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo a {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        nav .menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .menu ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav .menu ul li a:hover {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        .tbl-biru {
+            background-color: var(--button-bg-blue);
+            color: var(--button-text);
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tbl-biru:hover {
+            background-color: #165FDB;
+        }
+
+        .tbl-merah {
+            background-color: var(--button-bg-red);
+            color: var(--button-text);
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tbl-merah:hover {
+            background-color: #B0405C;
+        }
+
+        /* Section Home */
+        #home {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+
+        #home img {
+            flex: 1 1 400px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        #home .kolom {
+            flex: 1 1 400px;
+        }
+
+        #home .deskripsi {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #home h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        #home p {
+            margin-bottom: 15px;
+            color: var(--secondary-text);
+        }
+
+        /* Section Courses */
+        #courses {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        #courses .kolom {
+            flex: 1 1 400px;
+            margin-right: 20px;
+        }
+
+        #courses img {
+            flex: 1 1 400px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+
+        #courses .deskripsi {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #courses h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        #courses p {
+            margin-bottom: 15px;
+            color: var(--secondary-text);
+        }
+
+        /* Section Mentors */
+        #mentors {
+            background-color: var(--secondary-color);
+            padding: 60px 0;
+        }
+
+        #mentors .kolom {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #mentors .deskripsi {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #mentors h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        #mentors p {
+            color: var(--secondary-text);
+        }
+
+        .mentor-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .kartu-mentor {
+            background-color: var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .kartu-mentor:hover {
+            transform: translateY(-10px);
+            background-color: var(--secondary-color);
+        }
+
+        .kartu-mentor img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .kartu-mentor p {
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        /* Section Partners */
+        #partners {
+            padding: 60px 0;
+        }
+
+        #partners .kolom {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #partners .deskripsi {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #partners h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        #partners p {
+            color: var(--secondary-text);
+        }
+
+        .partner-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .kartu-partner {
+            background-color: var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .kartu-partner:hover {
+            transform: translateY(-10px);
+            background-color: var(--secondary-color);
+        }
+
+        .kartu-partner img {
+            max-width: 100%;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        /* Contact Section (Footer) */
+        #contact {
+            background-color: var(--primary-color);
+            padding: 50px 0px 50px 0px;
+        }
+
+        .footer {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            gap: 40px;
+            justify-content: space-between;
+            color: var(--footer-text);
+        }
+
+        .footer-section {
+            color: var(--accent-color);
+            width: 20%;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-family: 'comic sans ms';
+            font-weight: 800;
+            font-size: 30px;
+            margin-bottom: 20px;
+            width: 100%;
+            line-height: 50px;
+        }
+
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: var(--footer-text);
+        }
+
+        /* Copyright */
+        #copyright {
+            background-color: var(--secondary-color);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsif */
+        @media (max-width: 992px) {
+            nav .menu ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav .menu {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            #home, #courses {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #home img, #courses img {
+                margin: 0 0 20px 0;
+            }
+
+            #mentors .mentor-list, #partners .partner-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="#">BersamaRamy.</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#mentors">Mentors</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="tbl-biru">Sign up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <!-- Home Section -->
+        <section id="home">
+            <img src="https://img.freepik.com/free-vector/tiny-developers-programming-website-internet-platform-flat-vector-illustration-cartoon-programmers-near-screen-with-open-code-script-software-development-digital-technology-concept_74855-10168.jpg?semt=ais_hybrid" alt="Programming Illustration"/>
+            <div class="kolom">
+                <p class="deskripsi">Belajar Programming secara online</p>
+                <h2>Tetap Rajin, Pantang Menyerah</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, soluta.</p>
+                <p><a href="#" class="tbl-merah">Pelajari Lebih Lanjut</a></p>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses">
+            <div class="kolom">
+                <p class="deskripsi">Mari Belajar Coding Agar Menjadi Hacker</p>
+                <h2>Online Courses At Zoom</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur labore adipisci unde facilis iusto. Placeat expedita earum quae repudiandae!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur labore adipisci unde facilis iusto. Placeat expedita earum quae repudiandae!</p>
+                <p><a href="#" class="tbl-biru">Pelajari Lebih Lanjut</a></p>
+            </div>
+            <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?semt=ais_hybrid" alt="Online Tutorials"/>
+        </section>
+
+        <!-- Mentors Section -->
+        <section id="mentors">
+            <div class="tengah">
+                <div class="kolom">
+                    <p class="deskripsi">Our Professional Mentors</p>
+                    <h2>Mentors</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, ipsum.</p>
+                </div>
+
+                <div class="mentor-list">
+                    <div class="kartu-mentor">
+                        <img src="https://image.cdn2.seaart.ai/static/8f2e626b2adf3c86a53beb0dab1326ee/1700625663661/4f1c8cfde19af2f983e2df0414dae8a0.jpeg" alt="Gu Xiao Yu"/>
+                        <p>Gu Xiao Yu</p>
+                    </div>
+                    <div class="kartu-mentor">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Andrzej_Person_Kancelaria_Senatu.jpg/1200px-Andrzej_Person_Kancelaria_Senatu.jpg" alt="Andrei Scout"/>
+                        <p>Andrei Scout</p>
+                    </div>
+                    <div class="kartu-mentor">
+                        <img src="https://m.media-amazon.com/images/M/MV5BYzZiM2I5ZmYtMzdkZC00ZjM1LWFkYzItYTBlN2M5NmRhNDc5XkEyXkFqcGc@._V1_.jpg" alt="Emma Myers"/>
+                        <p>Emma Myers</p>
+                    </div>
+                    <div class="kartu-mentor">
+                        <img src="https://miro.medium.com/v2/resize:fit:984/1*pb_ovMWYlBiJoYECcLTqAg@2x.jpeg" alt="Pdiddy"/>
+                        <p>Pdiddy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="partners">
+            <div class="tengah">
+                <div class="kolom">
+                    <p class="deskripsi">Our Best Partners</p>
+                    <h2>Partners</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, magni vero in aliquam facilis obcaecati nobis tenetur ipsum ipsam at?</p>
+                </div>
+
+                <div class="partner-list">
+                    <div class="kartu-partner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UPenn_shield_with_banner.svg/1200px-UPenn_shield_with_banner.svg.png" alt="UPenn"/>
+                    </div>
+                    <div class="kartu-partner">
+                        <img src="https://logowik.com/content/uploads/images/oxford-university2290.logowik.com.webp" alt="Oxford University"/>
+                    </div>
+                    <div class="kartu-partner">
+                        <img src="https://kclsed.org/wp-content/uploads/2020/02/yale-university-logo-png-2.png" alt="Yale University"/>
+                    </div>
+                    <div class="kartu-partner">
+                        <img src="https://schoters-question-bank.s3.ap-southeast-1.amazonaws.com/assets/57844100-6d0b-49ff-8ceb-d7ceaff087b8.webp" alt="Partner Logo"/>
+                    </div>
+                    <div class="kartu-partner">
+                        <img src="https://www.sigs.tsinghua.edu.cn/_upload/article/images/0f/4e/573635a7408d8dad3f6bbcef841e/8f335c00-03e8-4d69-8b03-c76475ffc63d.png" alt="Tsinghua University"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section (Footer) -->
+    <div id="contact">
+        <div class="wrapper">
+            <div class="footer">
+                <div class="footer-section">
+                    <h3>BersamaRamy.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, nihil.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, nihil.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Jl. WR. Supratman Surabaya</p>
+                    <p>Kode Pos: 34523</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Social</h3>
+                    <p><b>Tiktok: </b>Coding With Afrizal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div id="copyright">
+        <div class="wrapper">
+            &copy; 2024. <b>BersamaRamy.</b> All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
